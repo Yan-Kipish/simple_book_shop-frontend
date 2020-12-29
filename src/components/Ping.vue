@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <p>{{ msg }}</p>
+  <div class="container">
+    <button type="button" class="btn btn-primary">{{ msg }}</button>
   </div>
 </template>
 
@@ -19,7 +19,7 @@ export default {
       const path = 'http://localhost:8000/ping';
       axios.get(path)
         .then((res) => {
-          this.msg = res.data;
+          this.msg = res.data.result;
         })
         .catch((error) => {
           // eslint-выключение следующей строки
