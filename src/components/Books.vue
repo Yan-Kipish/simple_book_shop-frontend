@@ -5,7 +5,10 @@
         <h1>Книги у продажу</h1>
         <hr />
         <br /><br />
-        <button type="button" class="btn btn-success btn-sm" v-b-modal.book-modal>Додати книгу</button>
+        <alert :message=message v-if="showMessage"></alert>
+        <button type="button" class="btn btn-success btn-sm" v-b-modal.book-modal>
+          Додати книгу
+        </button>
         <br /><br />
         <table class="table table-hover">
           <thead>
@@ -93,6 +96,7 @@
 
 <script>
 import axios from 'axios';
+import Alert from './Alert';
 
 export default {
   data() {
@@ -103,7 +107,12 @@ export default {
         author: '',
         price: 0.0,
       },
+      message: '',
+      showMessage: false,
     };
+  },
+  components: {
+    alert: Alert,
   },
   methods: {
     getBooks() {
@@ -122,6 +131,8 @@ export default {
       axios.post(path, payload)
         .then(() => {
           this.getBooks();
+          this.message = 'Book added!';
+          this.showMessage = true;
         })
         .catch((error) => {
           // eslint-отключение следующей строки
@@ -137,11 +148,10 @@ export default {
     onSubmit(evt) {
       evt.preventDefault();
       this.$refs.addBookModal.hide();
-      let read = false;
       const payload = {
         title: this.addBookForm.title,
         author: this.addBookForm.author,
-        price: this.addBookForm.price
+        price: this.addBookForm.price,
       };
       this.addBook(payload);
       this.initForm();
