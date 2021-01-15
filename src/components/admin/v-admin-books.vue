@@ -3,39 +3,41 @@
     <v-navbar />
     <h1 class="mt-4">Книги у продажу</h1>
     <table class="table table-hover mt-3">
-          <thead>
-            <tr>
-              <th scope="col">Назва</th>
-              <th scope="col">Автор</th>
-              <th scope="col">Ціна</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(book, index) in books" :key="index">
-              <td>{{ book.title }}</td>
-              <td>{{ book.author }}</td>
-              <td>{{ book.price }} грн.</td>
-              <td>
-                <b-button-group>
-                  <b-button variant="warning">Редагувати</b-button>
-                  <b-button variant="danger">Видалити</b-button>
-                </b-button-group>
-              </td>
-            </tr>
-          </tbody>
+      <thead>
+        <tr>
+          <th scope="col">Назва</th>
+          <th scope="col">Автор</th>
+          <th scope="col">Ціна</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(book, index) in books" :key="index">
+          <td>{{ book.title }}</td>
+          <td>{{ book.author }}</td>
+          <td>{{ book.price }} грн.</td>
+          <td>
+            <b-button-group>
+              <b-button variant="warning">Редагувати</b-button>
+              <b-button variant="danger">Видалити</b-button>
+            </b-button-group>
+          </td>
+        </tr>
+      </tbody>
     </table>
-    <b-button variant="info" class="mt-2">Додати нову книгу</b-button>
+    <v-add-book />
   </div>
 </template>
 
 <script>
-import vNavbar from '@/components/navbar/v-navbar';
+import vNavbar from "@/components/navbar/v-navbar";
+import VAddBook from "./v-add-book.vue";
 
 export default {
   name: "v-admin-books",
   components: {
     vNavbar,
+    VAddBook,
   },
   data() {
     return {

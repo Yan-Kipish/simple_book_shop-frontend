@@ -4,6 +4,8 @@
 
 ## Build Setup
 
+First, install a backend from https://github.com/Yan-Kipish/simple_book_shop-backend.git and run it
+
 ``` bash
 # install dependencies
 npm install
