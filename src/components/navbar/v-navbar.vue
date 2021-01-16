@@ -13,7 +13,9 @@
       <b-collapse id="nav-collapse" is-nav>
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-          <b-nav-item href="/cart">Корзина</b-nav-item>
+          <b-nav-item :to="{name: 'cart', params: {cart_data: CART}}">
+            Корзина({{CART.length}})
+          </b-nav-item>
           <b-nav-item-dropdown right>
             <!-- Using 'button-content' slot -->
             <template #button-content>
@@ -31,6 +33,8 @@
 
 <script>
 /* eslint-disable */
+import {mapGetters} from 'vuex';
+
 export default {
   name: 'v-navbar',
   props: {
@@ -42,7 +46,7 @@ export default {
     };
   },
   computed: {
-    
+    ...mapGetters(["CART"]),
   },
 };
 </script>

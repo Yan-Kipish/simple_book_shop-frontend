@@ -18,6 +18,13 @@
       "title": "Мифы древней Греции",
       "author": "Эксмо",
       "price": "139.99"
+    },
+    {
+      "title": "qwerty",
+      "author": "gukin",
+      "price": "199.99",
+      "description": "Lorem Ipsum",
+      "id": 4
     }
   ]
 }

@@ -1,12 +1,15 @@
 <template>
   <div id="app">
-    <router-view/>
+    <v-main />
   </div>
 </template>
 
 <script>
+import VMain from './components/v-main';
+
 export default {
   name: 'App',
+  components: {VMain},
 };
 </script>
 
